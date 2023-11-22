@@ -4,7 +4,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from data import StandardDataset
+from data.StandardDataset import *
 from data.JigsawLoader import JigsawDataset, JigsawTestDataset, get_split_dataset_info, _dataset_info, JigsawTestDatasetMultiple
 from data.concat_dataset import ConcatDataset
 
@@ -21,7 +21,7 @@ digits_datasets = [mnist, mnist, svhn, usps]
 available_datasets = office_datasets + pacs_datasets + vlcs_datasets + digits_datasets
 #office_paths = {dataset: "/home/enoon/data/images/office/%s" % dataset for dataset in office_datasets}
 #pacs_paths = {dataset: "/home/enoon/data/images/PACS/kfold/%s" % dataset for dataset in pacs_datasets}
-#vlcs_paths = {dataset: "/home/enoon/data/images/VLCS/%s/test" % dataset for dataset in pacs_datasets}
+vlcs_paths = {dataset: "/home/goulmdata/images/VLCS/%s/test" % dataset for dataset in vlcs_datasets}
 #paths = {**office_paths, **pacs_paths, **vlcs_paths}
 
 dataset_std = {mnist: (0.30280363, 0.30280363, 0.30280363),

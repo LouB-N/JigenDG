@@ -1,6 +1,7 @@
 from torch import nn
 from torch.utils import model_zoo
-from torchvision.models.resnet import BasicBlock, model_urls, Bottleneck
+from torchvision.models.resnet import BasicBlock,Bottleneck
+#from torchvision.models.resnet import BasicBlock, model_urls, Bottleneck
 
 
 class ResNet(nn.Module):
@@ -71,7 +72,8 @@ def resnet18(pretrained=True, **kwargs):
     """
     model = ResNet(BasicBlock, [2, 2, 2, 2], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet18']), strict=False)
+        model.load_state_dict(model_zoo.load_url('https://download.pytorch.org/models/resnet18-5c106cde.pth'), strict=False)
+        #model.load_state_dict(model_zoo.load_url(model_urls['resnet18']), strict=False)
     return model
 
 def resnet50(pretrained=True, **kwargs):
@@ -81,5 +83,5 @@ def resnet50(pretrained=True, **kwargs):
     """
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
-        model.load_state_dict(model_zoo.load_url(model_urls['resnet50']), strict=False)
+        model.load_state_dict(model_zoo.load_url('https://download.pytorch.org/models/resnet50-19c8e357.pth'), strict=False)
     return model
